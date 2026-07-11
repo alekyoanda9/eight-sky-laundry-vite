@@ -1,0 +1,71 @@
+backend:
+  name: github
+  repo: user/eight-sky-laundry-vite
+  branch: main
+  base_url: https://oauth.worker.dev
+
+media_folder: public/images
+public_folder: /images
+locale: id
+
+collections:
+  - name: konten
+    label: Konten Website
+    files:
+      - name: info_bisnis
+        label: Informasi Bisnis
+        file: src/content/bisnis.json
+        format: json
+        fields:
+          - { label: Nama Bisnis, name: nama, widget: string }
+          - { label: Tagline, name: tagline, widget: string }
+          - { label: "Nomor WhatsApp (tanpa +)", name: whatsapp, widget: string }
+          - { label: Instagram Handle, name: instagram, widget: string, required: false }
+          - { label: Alamat, name: alamat, widget: string }
+          - { label: Jam Buka, name: jam_buka, widget: string }
+
+      - name: hero
+        label: Hero Section
+        file: src/content/hero.json
+        format: json
+        fields:
+          - { label: Heading Baris 1, name: heading_line1, widget: string }
+          - { label: Heading Baris 2, name: heading_line2, widget: string }
+          - { label: Subheading, name: subheading, widget: text }
+          - { label: Teks CTA Utama, name: cta_primary, widget: string }
+          - { label: Teks CTA Sekunder, name: cta_secondary, widget: string }
+
+      - name: how_it_works
+        label: Cara Order
+        file: src/content/how_it_works.json
+        format: json
+        fields:
+          - { label: Label, name: label, widget: string }
+          - { label: Heading, name: heading, widget: string }
+          - name: steps
+            label: Langkah-langkah
+            widget: list
+            fields:
+              - { label: Judul, name: title, widget: string }
+              - { label: Deskripsi, name: description, widget: text }
+
+      - name: coverage
+        label: Area Layanan
+        file: src/content/coverage.json
+        format: json
+        fields:
+          - { label: Label, name: label, widget: string }
+          - { label: Heading, name: heading, widget: string }
+          - name: areas
+            label: Daftar Area
+            widget: list
+            field: { label: Nama Area, name: item, widget: string }
+
+      - name: cta_banner
+        label: CTA Banner
+        file: src/content/cta_banner.json
+        format: json
+        fields:
+          - { label: Heading, name: heading, widget: string }
+          - { label: Deskripsi, name: description, widget: text }
+          - { label: Teks Tombol, name: cta_text, widget: string }
