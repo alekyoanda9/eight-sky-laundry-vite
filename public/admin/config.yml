@@ -1,71 +1,105 @@
 backend:
   name: github
-  repo: user/eight-sky-laundry-vite
+  repo: alekyoanda9/eight-sky-laundry-vite
   branch: main
-  base_url: https://oauth.worker.dev
+  base_url: https://sveltia-cms-alek.alexyoanda0.workers.dev
 
-media_folder: public/images
-public_folder: /images
+media_folder: "public/images"
+public_folder: "/images"
+
 locale: id
 
 collections:
-  - name: konten
-    label: Konten Website
+  - name: "konten"
+    label: "Konten Website"
     files:
-      - name: info_bisnis
-        label: Informasi Bisnis
-        file: src/content/bisnis.json
-        format: json
-        fields:
-          - { label: Nama Bisnis, name: nama, widget: string }
-          - { label: Tagline, name: tagline, widget: string }
-          - { label: "Nomor WhatsApp (tanpa +)", name: whatsapp, widget: string }
-          - { label: Instagram Handle, name: instagram, widget: string, required: false }
-          - { label: Alamat, name: alamat, widget: string }
-          - { label: Jam Buka, name: jam_buka, widget: string }
 
-      - name: hero
-        label: Hero Section
-        file: src/content/hero.json
+      # ── 1. Informasi Bisnis
+      - name: "info_bisnis"
+        label: "Informasi Bisnis"
+        file: "src/content/bisnis.json"
         format: json
         fields:
-          - { label: Heading Baris 1, name: heading_line1, widget: string }
-          - { label: Heading Baris 2, name: heading_line2, widget: string }
-          - { label: Subheading, name: subheading, widget: text }
-          - { label: Teks CTA Utama, name: cta_primary, widget: string }
-          - { label: Teks CTA Sekunder, name: cta_secondary, widget: string }
+          - { label: "Nama Bisnis",              name: "nama",             widget: "string" }
+          - { label: "Tagline",                  name: "tagline",          widget: "string" }
+          - { label: "Nomor WhatsApp (tanpa +)", name: "whatsapp",         widget: "string" }
+          - { label: "Username Instagram",       name: "instagram",        widget: "string" }
+          - { label: "Alamat Lengkap",           name: "alamat",           widget: "string" }
+          - { label: "Area/Kecamatan",           name: "area",             widget: "string" }
+          - { label: "Jam Buka",                 name: "jam_buka",         widget: "string" }
+          - { label: "Google Maps Embed URL",    name: "maps_embed",       widget: "string", hint: "Ambil dari Google Maps → Share → Embed a map → salin URL src iframe" }
+          - { label: "SEO Title",                name: "seo_title",        widget: "string", hint: "Maks 60 karakter. Contoh: Eight Sky Laundry — Laundry Antar Jemput Jakarta" }
+          - { label: "SEO Description",          name: "seo_description",  widget: "text",   hint: "Maks 160 karakter. Deskripsikan bisnis, layanan, lokasi." }
+          - { label: "URL Website",              name: "seo_url",          widget: "string", hint: "URL lengkap site, mis. https://eight-sky-laundry.pages.dev/" }
+          - { label: "Koordinat Latitude",       name: "koordinat_lat",    widget: "string", hint: "Dari Google Maps, mis. -6.175" }
+          - { label: "Koordinat Longitude",      name: "koordinat_lng",    widget: "string", hint: "Dari Google Maps, mis. 106.785" }
 
-      - name: how_it_works
-        label: Cara Order
-        file: src/content/how_it_works.json
+      # ── 2. Hero
+      - name: "hero"
+        label: "Hero (Halaman Utama)"
+        file: "src/content/hero.json"
         format: json
         fields:
-          - { label: Label, name: label, widget: string }
-          - { label: Heading, name: heading, widget: string }
-          - name: steps
-            label: Langkah-langkah
-            widget: list
+          - { label: "Heading Baris 1",    name: "heading_line1", widget: "string" }
+          - { label: "Heading Baris 2",    name: "heading_line2", widget: "string" }
+          - { label: "Teks Deskripsi",     name: "subheading",    widget: "text" }
+          - { label: "Teks Tombol Utama",  name: "cta_primary",   widget: "string" }
+          - { label: "Teks Tombol Kedua",  name: "cta_secondary", widget: "string" }
+
+      # ── 3. Cara Order
+      - name: "how_it_works"
+        label: "Cara Order"
+        file: "src/content/how_it_works.json"
+        format: json
+        fields:
+          - { label: "Label Section", name: "label",   widget: "string" }
+          - { label: "Heading",       name: "heading", widget: "string" }
+          - label: "Langkah-langkah"
+            name: "steps"
+            widget: "list"
             fields:
-              - { label: Judul, name: title, widget: string }
-              - { label: Deskripsi, name: description, widget: text }
+              - { label: "Judul",      name: "title",       widget: "string" }
+              - { label: "Deskripsi", name: "description", widget: "text" }
 
-      - name: coverage
-        label: Area Layanan
-        file: src/content/coverage.json
+      # ── 4. Area Layanan
+      - name: "coverage"
+        label: "Area Layanan"
+        file: "src/content/coverage.json"
         format: json
         fields:
-          - { label: Label, name: label, widget: string }
-          - { label: Heading, name: heading, widget: string }
-          - name: areas
-            label: Daftar Area
-            widget: list
-            field: { label: Nama Area, name: item, widget: string }
+          - { label: "Label Section", name: "label",   widget: "string" }
+          - { label: "Heading",       name: "heading", widget: "string" }
+          - name: "areas"
+            label: "Daftar Area"
+            widget: "list"
+            field: { label: "Nama Area", name: "item", widget: "string" }
 
-      - name: cta_banner
-        label: CTA Banner
-        file: src/content/cta_banner.json
+      # ── 5. Tentang Kami
+      - name: "about"
+        label: "Tentang Kami"
+        file: "src/content/about.json"
         format: json
         fields:
-          - { label: Heading, name: heading, widget: string }
-          - { label: Deskripsi, name: description, widget: text }
-          - { label: Teks Tombol, name: cta_text, widget: string }
+          - { label: "Label Section", name: "label",   widget: "string" }
+          - { label: "Heading",       name: "heading", widget: "string" }
+          - label: "Paragraf"
+            name: "paragraf"
+            widget: "list"
+            field: { label: "Paragraf", name: "item", widget: "text" }
+          - label: "Statistik"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Angka", name: "angka", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+          - { label: "Teks Tombol", name: "cta", widget: "string" }
+
+      # ── 6. CTA Banner
+      - name: "cta_banner"
+        label: "CTA Banner"
+        file: "src/content/cta_banner.json"
+        format: json
+        fields:
+          - { label: "Heading",     name: "heading",     widget: "string" }
+          - { label: "Deskripsi",  name: "description", widget: "text" }
+          - { label: "Teks Tombol", name: "cta_text",    widget: "string" }
