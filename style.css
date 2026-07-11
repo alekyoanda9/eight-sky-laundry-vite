@@ -711,6 +711,22 @@ ul, ol { list-style: none; }
   margin-top: .25rem;
 }
 
+.footer__social {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer__social a {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .8125rem;
+  color: rgba(255,255,255,.6);
+  transition: color .18s;
+}
+.footer__social a:hover { color: #fff; }
+
 /* ---------- WA FLOAT ---------- */
 .wa-float {
   position: fixed;
